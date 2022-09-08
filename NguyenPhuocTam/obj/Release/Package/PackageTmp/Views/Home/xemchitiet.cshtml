@@ -1,0 +1,22 @@
+﻿@using NguyenPhuocTam.Models
+@model Product
+@{ ViewBag.Title = "xemchitiet";
+                Layout = "~/Views/Shared/_Layout.cshtml"; }
+<br />
+<h3><b> CHI TIẾT SẢN PHẨM</b></h3>
+<CENTER>
+    <div class="row">
+        <div class="col-md-3 col-sm-4">
+            <div class="thumbnail">
+                <img src="@Url.Content("~/img/book/" +@Model.Image)" width="300" height="330" />
+                <br />
+                <h4> @Model.Productname</h4>
+                <h4>Tác giả: @Model.Description</h4>
+                <h4 style="color:red">Giá: @Model.Price VNĐ</h4>
+                <br />
+                <a class="btn btn-success btn-sm" href="@Url.Action("ThemVaoGio","Cart", new {@SanPhamID = @Model.Id })" style="font-size:14px"> <span class="glyphicon glyphicon-shopping-cart"></span> Thêm Giỏ Hàng</a>
+            </div>
+
+        </div>
+    </div>
+</CENTER>

@@ -1,0 +1,61 @@
+﻿@model NguyenPhuocTam.Models.InvoiceDetail
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<link href="~/Areas/admin/Assets/css/admin.css" rel="stylesheet" />
+<div class="p-title-page">
+    <ion-icon name="layers-outline"></ion-icon>
+    <p class="title-page"><b> InvoiceDetails</b></p>
+</div>
+
+<div>
+    <h4 style="text-indent:20px;">Details</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Quantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Quantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UnitPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UnitPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Invoice.Code)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Invoice.Code)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Product.Productname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Product.Productname)
+        </dd>
+
+    </dl>
+</div>
+<ul >
+    <li class="btn btn-success"><a> @Html.ActionLink("Edit", "Edit", new { id = Model.Id })  </a> </li>
+    <li class="btn btn-default"><a> @Html.ActionLink("Back to List", "Index")</a> </li>
+</ul>
+<style>
+    a, a:hover, a:focus, a:active {
+        text-decoration: none;
+        color: inherit;
+    }
+</style>

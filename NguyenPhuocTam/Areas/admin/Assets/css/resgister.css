@@ -1,0 +1,32 @@
+﻿.register-form {
+    margin: 155px auto;
+    display: flex;
+    justify-content: center
+}
+
+.info-feild {
+    width: 100%;
+    padding: 6px 10px;
+    margin: 10px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+.info-feild option {
+    padding: 6px 10px;
+}
+.btn-register {
+    background-color: #179aff;
+    border: none;
+    color: white;
+    padding: 10px 32px;
+    text-decoration: none;
+    margin-top: 10px;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 5px
+}
+.validator-register {
+    float: right
+}

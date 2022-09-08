@@ -1,0 +1,72 @@
+﻿@model IEnumerable<NguyenPhuocTam.Models.Product>
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Scripts/bootstrap.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<style>
+    p {
+        font-size: 16px;
+        text-indent: 10px;
+    }
+</style>
+<br />
+<div class="container">
+    <div class="navbar-inverse" style="height:50px; text-indent:10px;">
+        <h3>
+            <sub>
+                <span style="color:white; font-size:22px;"><b>Danh Mục Sách </b></span>
+                <input type="Search" id="myInput" placeholder="Tìm kiếm tên sản phẩm" class="form-control pull-right" /><br />
+            </sub>
+        </h3>
+    </div>
+        
+        <br />
+        <div id="catList" class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-3 col-sm-3 ">
+                    <div class="thumbnail" style="height:600px;">
+                        <a href="@Url.Content(@Url.Action("xemchitiet", new {@Id=item.Id }))">
+                            <img src="@Url.Content("~/img/book/" + item.Image)" class="img-responsive " alt="" width="350" height="350" />
+                        </a><br />
+                        <strong style="font-size: 15px; display: -webkit-box"> @Html.DisplayFor(modelItem => item.Productname)</strong><br />
+                        <center>
+                            <p style="color: red"><b> Giá: @Html.DisplayFor(modelItem => item.Price) VNĐ</b></p>
+                            <a href="@Url.Action("xemchitiet", new {@Id=item.Id })" class="btn btn-danger">Chi tiết </a><br /><br />
+                            <a class="btn btn-success btn-sm" href="@Url.Action("ThemVaoGio","Cart", new {@SanPhamID = item.Id })" style="font-size:14px"> <span class="glyphicon glyphicon-shopping-cart"></span>  Thêm vào giỏ </a>
+                        </center>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#myInput").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#catList >div").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+    $(document).ready(function () {
+        $("#search").keyup(function () {
+            $("#catList").hide("fast");
+
+            var newStrSearch = $("#search").val();
+            $.ajax({
+                type: "POST",
+                url: "~/Views/Shared/_Layout.cshtml",
+                data: { searchString: newStrSearch },
+                success: function (categories) {
+                    
+                }
+            });
+        });
+    });
+    </script>

@@ -1,0 +1,125 @@
+﻿@model IEnumerable<NguyenPhuocTam.Models.Product>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/admin/Views/Shared/_AdminLayout.cshtml";
+}
+<link href="~/Areas/admin/Assets/css/admin.css" rel="stylesheet" />
+<div class="p-title-page">
+    <ion-icon name="pricetag-outline"></ion-icon>
+    <p class="title-page"><b> Products</b> </p>
+</div>
+<div>
+    <br />
+    <ul>
+        <li style="text-indent:10px;" class="btn btn-success"> @Html.ActionLink("Create New", "Create")</li>
+    </ul>
+    <input type="Search" id="myInput" onkeyup="myFunction()" placeholder="Tìm kiếm tên sách" class="form-control pull-right" />
+    <br />
+    <table class="table-manager" id="myTable">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Productname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Image)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SKU)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Stock)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductType.Name)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Productname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    <img src="@Url.Content("~/img/book/" +item.Image)" width="50" height="60" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SKU)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Stock)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductType.Name)
+                </td>
+                <td>
+                    <ul>
+                        <li class="btn btn-info"><a> @Html.ActionLink("Edit", "Edit", new { id = item.Id })</a></li>
+                        <li class="btn btn-warning"><a> @Html.ActionLink("Details", "Details", new { id = item.Id })</a> </li>
+                        <li class="btn btn-danger"><a>  @Html.ActionLink("Delete", "Delete", new { id = item.Id })</a></li>
+                    </ul>
+                </td>
+            </tr>
+        }
+
+    </table>
+    <style>
+        .table-manager {
+            width: 100%
+        }
+
+            .table-manager th {
+                padding: 10px;
+            }
+
+            .table-manager td {
+                padding: 10px;
+            }
+
+        a, a:hover, a:focus, a:active {
+            text-decoration: none;
+            color: inherit;
+        }
+    </style>
+</div>
+<script>
+    function myFunction() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+</script>

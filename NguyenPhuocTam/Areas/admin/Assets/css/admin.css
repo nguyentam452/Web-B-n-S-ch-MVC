@@ -1,0 +1,51 @@
+﻿body {
+
+}
+.p-title-page {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: lightblue;
+
+}
+.title-page {
+    padding: 20px 20px;
+    height: 66.66px;
+    font-size: 14pt;
+    align-items: center;
+}
+.p-title-page ion-icon{
+    margin-left: 15px;
+    font-size: 20pt;
+}
+.add-and-find {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 20px;
+}
+    .add-and-find a {
+        flex: 1;
+        float: left;
+        font-weight: bold
+    }
+    .add-and-find input[type=submit] {
+        background-color: #507CD1;
+        border: none;
+        color: white;
+        padding: 7px 32px;
+        text-decoration: none;
+        cursor: pointer;
+        margin-left: 10px;
+    }
+    .add-and-find input[type=text] {
+        padding: 6px 10px;
+        margin: 10px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        margin-left: 10px;
+    }
+
+

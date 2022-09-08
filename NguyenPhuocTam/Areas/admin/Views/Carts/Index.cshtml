@@ -1,0 +1,101 @@
+﻿@model IEnumerable<NguyenPhuocTam.Models.Cart>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/admin/Views/Shared/_AdminLayout.cshtml";
+}
+<link href="~/Areas/admin/Assets/css/admin.css" rel="stylesheet" />
+<script src="~/Scripts/bootstrap.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+
+<div class="p-title-page">
+    <ion-icon name="Cart"></ion-icon>
+    <p class="title-page"><b> Carts</b></p>
+</div>
+<br />
+<ul>
+    <li style="text-indent:10px;" class="btn btn-success">
+        @Html.ActionLink("Create New", "Create")
+    </li>
+</ul>
+<input type="Search" id="myInput" onkeyup="myFunction()" placeholder="Tìm kiếm theo tên sản phẩm" class="form-control pull-right" />
+<br />
+<table class=" table-manager" id="myTable">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Quantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Account.Username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Product.Productname)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Account.Username)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.Productname)
+            </td>
+            <td>
+                <ul>
+                    <li class="btn btn-info"><a> @Html.ActionLink("Edit", "Edit", new { id = item.Id }) </a></li>
+                    <li class="btn btn-warning"><a> @Html.ActionLink("Details", "Details", new { id = item.Id })  </a></li>
+                    <li class="btn btn-danger"><a> @Html.ActionLink("Delete", "Delete", new { id = item.Id }) </a></li>
+                </ul>
+
+
+
+            </td>
+        </tr>
+    }
+</table>
+<style>
+    .table-manager {
+        width: 100%
+    }
+
+        .table-manager th {
+            padding: 10px;
+        }
+
+        .table-manager td {
+            padding: 10px;
+        }
+
+    a, a:hover, a:focus, a:active {
+        text-decoration: none;
+        color: inherit;
+    }
+</style>
+<script>
+    function myFunction() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[2];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+</script>

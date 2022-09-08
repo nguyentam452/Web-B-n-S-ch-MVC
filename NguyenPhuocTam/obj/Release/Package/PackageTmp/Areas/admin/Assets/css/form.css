@@ -1,0 +1,65 @@
+﻿.register-container {
+}
+
+.container-form {
+    margin-top: 175px;
+}
+
+.title-form {
+    font-size: 15px;
+    margin: 8px 8px;
+}
+
+.form-column {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+    .form-column input[type=text], input[type=password], input[type=number], input[type=file], select {
+        width: 100%;
+        padding: 6px 10px;
+        margin: 10px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    .form-column input[type=button], input[type=submit], input[type=reset] {
+        background-color: #507CD1;
+        border: none;
+        color: white;
+        padding: 10px 32px;
+        text-decoration: none;
+        margin-top: 10px;
+        cursor: pointer;
+    }
+
+.line {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+.label-form {
+    flex: 1
+}
+.validator {
+    margin-left: 10px;
+}
+
+.label-radio label {
+    margin-left: 5px;
+}
+.label-radio td {
+    vertical-align: middle;
+}
+.label-error {
+    margin-top: 20px;
+}

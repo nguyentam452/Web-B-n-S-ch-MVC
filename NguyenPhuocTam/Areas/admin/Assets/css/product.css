@@ -1,0 +1,117 @@
+﻿.img-slide {
+    height: 300px;
+    width: 100%;
+}
+p:hover {
+    text-decoration: none;
+}
+.item-product {
+    height: 350px;
+    background-color: white;
+    border: 0.1px solid #eeeeee;
+    padding: 5px 15px;
+    margin: 5px 5px;
+    transition: .3s;
+    width: 222px;
+    display: inline-block;
+    cursor: pointer;
+}
+    .item-product .name {
+        font-weight: 500;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        margin-top: 5px;
+    }
+    .item-product p {
+        margin: 0;
+    }
+    .img-product {
+    height: 150px;
+    width: 100%;
+    margin: 30px 0 0 0;
+    transition: .3s;
+    display: flex;
+}
+
+    .img-product img {
+        height: 135px;
+        width: 190px;
+    }
+
+.item-product:hover .img-product {
+    height: 160px;
+    width: 100%;
+    margin: 20px 0 0 0;
+}
+
+.item-product:hover {
+    height: 350px;
+    background-color: white;
+    border: 0.1px solid #eeeeee;
+    padding: 5px 15px;
+    margin: 5px 5px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+    text-decoration: none;
+}
+
+
+
+.price-text {
+    color: black;
+    font-size: 14pt;
+    text-align: left;
+    background-color: #FFF;
+    border-radius: 10px;
+    max-width: 120px;
+    font-weight: bold;
+}
+
+.title-left {
+    height: 50px;
+    background-color: #179aff;
+    padding: 15px;
+}
+
+    .title-left p {
+        font-weight: 500;
+    }
+
+.menu-left {
+    border: 0.5px solid grey;
+}
+
+    .menu-left a {
+        padding: 10px;
+        display: flex;
+    }
+
+.thongso {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 8px;
+}
+
+    .thongso p {
+        color: black;
+        font-size: 12px;
+    }
+
+.icon-thongso {
+    height: 15px;
+    width: 15px;
+    margin-right: 5px;
+}
+.filter-product {
+    margin-top: 15px;
+}
+    .filter-product tbody tr td {
+        padding: 5px 10px;
+    }
+    .filter-product tbody tr td label {
+        margin-left: 10px;
+        font-weight: 500;
+    }

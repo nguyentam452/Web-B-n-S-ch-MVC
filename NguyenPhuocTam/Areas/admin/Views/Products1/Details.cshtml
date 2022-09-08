@@ -1,0 +1,92 @@
+﻿@model NguyenPhuocTam.Models.Product
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<link href="~/Areas/admin/Assets/css/admin.css" rel="stylesheet" />
+<div class="p-title-page">
+    <ion-icon name="people-outline"></ion-icon>
+    <p class="title-page"><b> Quản lý khách hàng</b> </p>
+</div>
+<div class="container">
+    <h4 style="text-indent:20px;">Details</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Productname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Productname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Image)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Image)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SKU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SKU)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Stock)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Stock)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductType.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductType.Name)
+        </dd>
+
+    </dl>
+</div>
+<ul >
+    <li class="btn btn-info"><a> @Html.ActionLink("Edit", "Edit", new { id = Model.Id })</a></li>
+    <li class="btn btn-default"><a> @Html.ActionLink("Back to List", "Index")</a></li>
+</ul>
+<style>
+    a, a:hover, a:focus, a:active {
+        text-decoration: none;
+        color: inherit;
+    }
+</style>

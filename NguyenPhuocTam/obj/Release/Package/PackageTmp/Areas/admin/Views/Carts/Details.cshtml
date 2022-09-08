@@ -1,0 +1,52 @@
+﻿@model NguyenPhuocTam.Models.Cart
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/admin/Views/Shared/_AdminLayout.cshtml";
+}
+<link href="~/Areas/admin/Assets/css/admin.css" rel="stylesheet" />
+<div class="p-title-page">
+    <ion-icon name="Cart"></ion-icon>
+    <p class="title-page"><b> Carts</b></p>
+</div>
+<div>
+    <h4 style="text-indent:20px;">Detail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Quantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Quantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Account.Username)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Account.Username)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Product.Productname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Product.Productname)
+        </dd>
+
+    </dl>
+</div>
+<ul >
+    <li class="btn btn-info"> <a>  @Html.ActionLink("Edit", "Edit", new { id = Model.Id })</a></li>
+    <li class="btn btn-default"> <a> @Html.ActionLink("Back to List", "Index")</a></li>
+
+</ul>
+<style>
+    a, a:hover, a:focus, a:active {
+        text-decoration: none;
+        color: inherit;
+    }
+</style>

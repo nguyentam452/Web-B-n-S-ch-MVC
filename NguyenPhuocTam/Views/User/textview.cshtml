@@ -1,0 +1,18 @@
+﻿@model NguyenPhuocTam.Models.Account
+@{ 
+    ViewBag.Title = "Test";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var u = Session["User"] as NguyenPhuocTam.Models.Account;
+}
+
+@{ if (u != null)
+    {
+
+        <h2>Xin chào : @u.Username</h2>
+        @Html.ActionLink("Đăng xuất", "DangXuat", "User")
+    }
+
+
+    <div> Nguyễn Phước Tâm CN Web</div>
+}
+

@@ -1,0 +1,163 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html">
+    <head runat="server">
+        <title>Quản trị hệ thống</title>
+        <asp:ContentPlaceHolder ID="head" runat="server">
+        </asp:ContentPlaceHolder>
+        <link href="Content/bootstrap.css" rel="stylesheet" />
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")
+        <style>
+            .main {
+                width: 98vw;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            .fixed {
+                position: fixed;
+                width: 15%;
+            }
+
+            .scrollit {
+                float: right;
+                width: 85%
+            }
+
+            p {
+                margin: 0
+            }
+
+            .left-panel-admin {
+                background-color: #283339;
+                color: white;
+                height: 100vh;
+                width:215px;
+                position: inherit;
+            }
+
+            .user-info {
+                background-color: #507CD1;
+                padding: 20px 0 20px 20px;
+            }
+
+            .info-line {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+            }
+
+            .user-info ion-icon {
+                margin-right: 10px;
+                font-size: 20pt;
+            }
+
+            .user-info p {
+                font-size: 11pt;
+                flex: 1;
+            }
+
+            .user-info a {
+                color: white;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                margin-right: 10px;
+            }
+
+            .btn-logout {
+                background-color: #00a9ff;
+                color: white;
+                padding: 3px 3px;
+                margin: 130px 0;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                font-weight: 500;
+                position: absolute;
+                left: 20px;
+                bottom: 20px;
+            }
+
+            .title-functions {
+                padding: 15px 20px;
+                font-weight: bold;
+            }
+
+            .list-functions {
+                padding: 0;
+            }
+
+            .left-panel-admin li ion-icon {
+                font-size: 15pt;
+                margin-right: 10px
+            }
+
+            .left-panel-admin li {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                font-size: 12pt;
+                padding: 15px 20px;
+            }
+
+                .left-panel-admin li:hover {
+                    background-color: #507CD1
+                }
+
+            .list-functions li a {
+                color: white;
+                text-decoration: none;
+                font-weight: 500;
+            }
+        </style>
+    </head>
+    <body>
+        @{ var u = Session["User"] as NguyenPhuocTam.Models.Account; }
+        <div class="navbar navbar-inverse navbar-fixed-top">
+        </div>
+        <div class="main">
+
+            <div class="row">
+                <div class="col-lg-2 fixed">
+                    <div class="left-panel-admin">
+                        <div class="user-info">
+                            <div class="info-line">
+                                <ion-icon name="person-circle-outline"></ion-icon>
+                                <p class="col-sm-push-12"> @u.Fullname </p>
+                            </div>
+                        </div>
+                        <div class="title-functions">
+                            <p>CHỨC NĂNG QUẢN LÝ</p>
+                        </div>
+                        <ul class="list-functions">
+                            <li><ion-icon name="people-outline"></ion-icon> @Html.ActionLink("Accounts", "Index", "Accounts")</li>
+                            <li><ion-icon name="cart"></ion-icon> @Html.ActionLink("Carts", "Index", "Carts")</li>
+                            <li><ion-icon name="receipt-outline"></ion-icon> @Html.ActionLink("InvoiceDetails", "Index", "InvoiceDetails")</li>
+                            <li><ion-icon name="newspaper-outline"></ion-icon> @Html.ActionLink("Invoices", "Index", "Invoices")</li>
+                            <li><ion-icon name="pricetag-outline"></ion-icon> @Html.ActionLink("Products", "Index", "Products1")</li>
+                            <li><ion-icon name="layers-outline"></ion-icon> @Html.ActionLink("ProductTypes", "Index", "ProductTypes")</li>
+                            <li Class="btn-logout"><ion-icon name="power-outline"></ion-icon><a href="~/Home/Index">Đăng xuất</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3  scrollit " style="padding: 0;">
+                    @RenderBody()
+                </div>
+
+            </div>
+        </div>
+
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+    </body>
+</html">
+

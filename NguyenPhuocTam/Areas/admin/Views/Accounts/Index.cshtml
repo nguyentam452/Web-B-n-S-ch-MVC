@@ -1,0 +1,135 @@
+﻿@model IEnumerable<NguyenPhuocTam.Models.Account>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/admin/Views/Shared/_AdminLayout.cshtml";
+}
+<link href="~/Areas/admin/Assets/css/admin.css" rel="stylesheet" />
+<div class="p-title-page">
+    <ion-icon name="people-outline"></ion-icon>
+    <p class="title-page"><b>Accounts </b></p>
+</div>
+<br />
+<ul>
+    <li style="text-indent:10px;" class="btn btn-success">
+        <a> @Html.ActionLink("Create New", "Create")</a>
+    </li>
+
+</ul>
+<input type="Search" id="myInput"onkeyup="myFunction()" placeholder="Tìm kiếm theo họ tên " class="form-control pull-right" />
+<br />
+
+<table class="table-manager " id="myTable">
+
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Password)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fullname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsAdmin)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Avatar)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr >
+            <td>
+                @Html.DisplayFor(modelItem => item.Username)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Password)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fullname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsAdmin)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Avatar)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                <ul>
+                    <li class="btn btn-info"> <a> @Html.ActionLink("Edit", "Edit", new { id = item.Id }) </a></li>
+                    <li class="btn btn-warning"><a> @Html.ActionLink("Details", "Details", new { id = item.Id }) </a></li>
+                    <li style="color:white"></li>
+                    <li class="btn btn-danger"><a> @Html.ActionLink("Delete", "Delete", new { id = item.Id })</a></li>
+                </ul>
+            </td>
+        </tr>
+    }
+
+</table>
+<style>
+    .table-manager {
+        width: 100%
+    }
+
+        .table-manager th {
+            padding: 10px;
+        }
+
+        .table-manager td {
+            padding: 10px;
+        }
+
+    a, a:hover, a:focus, a:active {
+        text-decoration: none;
+        color: inherit;
+    }
+</style>
+<script>
+    function myFunction() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[5];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+</script>

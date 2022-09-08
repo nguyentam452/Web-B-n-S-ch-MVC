@@ -1,0 +1,85 @@
+﻿@model NguyenPhuocTam.Models.Invoice
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/admin/Views/Shared/_AdminLayout.cshtml";
+}
+<link href="~/Areas/admin/Assets/css/admin.css" rel="stylesheet" />
+<div class="p-title-page">
+    <ion-icon name="newspaper-outline"></ion-icon>
+    <p class="title-page"><b>Invoices </b></p>
+</div>
+
+<div>
+    <h4 style="text-indent:20px;">Details</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Code)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Code)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IssuedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IssuedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ShippingAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShippingAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ShippingPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShippingPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Total)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Total)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Account.Username)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Account.Username)
+        </dd>
+
+    </dl>
+</div>
+<ul >
+    <li class="btn btn-info"> <a> @Html.ActionLink("Edit", "Edit", new { id = Model.Id })</a></li>
+    <li class="btn btn-default"><a> @Html.ActionLink("Back to List", "Index")</a> </li>
+
+</ul>
+<style>
+    a, a:hover, a:focus, a:active {
+        text-decoration: none;
+        color: inherit;
+    }
+</style>
